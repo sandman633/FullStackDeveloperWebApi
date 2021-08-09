@@ -40,16 +40,12 @@ namespace FullStackDeveloperWebApi.Controllers
             return NotFound();
         }
         [HttpPost]
-        public async Task<IActionResult> NewUser(IEnumerable<UserActivityDto> request)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public  IActionResult NewUser(IEnumerable<UserActivityDto> request)
         {
-            List<UserActivityDto> newUsers;
             _logger.LogInformation("UserActivity/Post was requested.");
-            foreach(var user in request)
-            {
-                var newUser = await _service.CreateAsync(user);
-                newUsers.Add(newUser);
-            }
-            return Ok(_mapper.Map<CustomerResponse>(response));
+            _service.CreateRange(request.ToArray());
+            return Ok();
         }
     }
 }
