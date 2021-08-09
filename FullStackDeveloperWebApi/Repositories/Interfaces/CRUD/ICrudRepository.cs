@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace FullStackDeveloperWebApi.Repositories
 {
-    public interface ICrudRepository<TModel> :
-        ICreatable<TModel>,
+    public interface ICrudRepository<TDto,TModel> :
+        ICreatable<TDto,TModel>,
         IDeletable,
-        IUpdatable<TModel>,
-        IGettable<TModel>,
-        IGettableById<TModel>
+        IUpdatable<TDto>,
+        IGettable<TDto>,
+        IGettableById<TDto>
     {
 
     }

@@ -1,21 +1,21 @@
-﻿using FullStackDeveloperWebApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using FullStackDeveloperWebApi.Dto;
+using FullStackDeveloperWebApi.Models;
+using FullStackDeveloperWebApi.Repositories;
 using System.Threading.Tasks;
 
 namespace FullStackDeveloperWebApi.Services
 {
-    public class UserActivityService
+    public  class UserActivityService : BaseService<UserActivityDto,UserActivity>, IUserActivityService
     {
-        private readonly Context _context;
-
-        public UserActivityService(Context context)
+        public IUserActivityRepository _repo;
+        public UserActivityService(IUserActivityRepository repo): base(repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
-
-
+        public Task CreateRange(params UserActivityDto[] userActivityDtos)
+        {
+            return _repo.CreateRange(userActivityDtos);
+        }
     }
 }

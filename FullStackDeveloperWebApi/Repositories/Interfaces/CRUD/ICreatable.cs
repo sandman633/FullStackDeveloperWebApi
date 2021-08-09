@@ -2,8 +2,8 @@
 
 namespace FullStackDeveloperWebApi.Repositories
 {
-    public interface ICreatable<TModel>
+    public interface ICreatable<TDto,TModel>
     {
-        Task<TModel> CreateAsync(TModel dto);
+        Task<TDto> CreateAsync(TDto dto);
     }
 }

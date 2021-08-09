@@ -1,3 +1,5 @@
+using FullStackDeveloperWebApi.Models;
+using FullStackDeveloperWebApi.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +13,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using FullStackDeveloperWebApi.Mapping;
+using FullStackDeveloperWebApi.Services;
 
 namespace FullStackDeveloperWebApi
 {
@@ -32,6 +37,21 @@ namespace FullStackDeveloperWebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FullStackDeveloperWebApi", Version = "v1" });
             });
+
+            MapperConfiguration(services);
+            services.AddScoped<IUserActivityRepository, UserActivityRepository>();
+            services.AddScoped<IUserActivityService, UserActivityService>();
+        }
+
+        private static void MapperConfiguration(IServiceCollection services)
+        {
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new UserActivityProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
