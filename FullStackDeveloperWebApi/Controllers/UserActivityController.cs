@@ -43,7 +43,7 @@ namespace FullStackDeveloperWebApi.Controllers
         }
         [HttpPost("CreateUsers")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public  IActionResult CreateUsers(IEnumerable<NewUserActivity> request)
+        public  IActionResult CreateUsers([FromBody]IEnumerable<NewUserActivity> request)
         {
             _logger.LogInformation("UserActivity/Post was requested.");
 
@@ -52,7 +52,7 @@ namespace FullStackDeveloperWebApi.Controllers
         }
         [HttpPost("CreateUser")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult CreateUser(NewUserActivity request)
+        public IActionResult CreateUser([FromBody]NewUserActivity request)
         {
             _logger.LogInformation("UserActivity/Post was requested.");
             _service.CreateAsync(_mapper.Map<UserActivityDto>(request));
