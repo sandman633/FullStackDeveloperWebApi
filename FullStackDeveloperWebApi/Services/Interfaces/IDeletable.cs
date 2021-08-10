@@ -12,6 +12,6 @@ namespace FullStackDeveloperWebApi.Services
         /// </summary>
         /// <param name="ids"></param>
         /// <returns></returns>
-        Task DeleteAsync(params int[] ids);
+        Task DeleteAsync(params int?[] ids);
     }
 }

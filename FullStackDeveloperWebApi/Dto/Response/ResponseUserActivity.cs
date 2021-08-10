@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FullStackDeveloperWebApi.Dto
+namespace FullStackDeveloperWebApi.Dto.Response
 {
-    public class UserActivityDto : BaseDto
+    public class ResponseUserActivity
     {
 
         public int UserId { get; set; }

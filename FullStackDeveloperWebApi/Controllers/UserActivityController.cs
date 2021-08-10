@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using FullStackDeveloperWebApi.Dto;
+using FullStackDeveloperWebApi.Dto.Request;
+using FullStackDeveloperWebApi.Dto.Response;
 using FullStackDeveloperWebApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,24 +29,33 @@ namespace FullStackDeveloperWebApi.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<UserActivityDto>))]
+        [HttpGet("Get")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<ResponseUserActivity>))]
         public async Task<IActionResult> Get()
         {
             _logger.LogInformation("UserActivity/Get was requested.");
             var responce = await _service.GetAsync();
             if(responce is IEnumerable<UserActivityDto>)
             {
-                return Ok(responce);
+                return Ok(_mapper.Map<IEnumerable<ResponseUserActivity>>(responce));
             }
             return NotFound();
         }
-        [HttpPost]
+        [HttpPost("CreateUsers")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public  IActionResult NewUser(IEnumerable<UserActivityDto> request)
+        public  IActionResult CreateUsers(IEnumerable<NewUserActivity> request)
         {
             _logger.LogInformation("UserActivity/Post was requested.");
-            _service.CreateRange(request.ToArray());
+
+            _service.CreateRange(_mapper.Map<IEnumerable<UserActivityDto>>(request).ToArray());
+            return Ok();
+        }
+        [HttpPost("CreateUser")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult CreateUser(NewUserActivity request)
+        {
+            _logger.LogInformation("UserActivity/Post was requested.");
+            _service.CreateAsync(_mapper.Map<UserActivityDto>(request));
             return Ok();
         }
     }

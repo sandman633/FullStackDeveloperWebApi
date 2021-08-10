@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using FullStackDeveloperWebApi.Dto;
+using FullStackDeveloperWebApi.Dto.Request;
+using FullStackDeveloperWebApi.Dto.Response;
 using FullStackDeveloperWebApi.Models;
 using System;
 using System.Collections.Generic;
@@ -12,7 +14,10 @@ namespace FullStackDeveloperWebApi.Mapping
     {
         public UserActivityProfile()
         {
-            CreateMap<UserActivity, UserActivityDto>().ReverseMap();
+            CreateMap<UserActivity, UserActivityDto>();
+            CreateMap<UserActivityDto, UserActivity>().ForMember(x => x.Id, y => y.Ignore());
+            CreateMap<NewUserActivity, UserActivityDto>().ReverseMap();
+            CreateMap<ResponseUserActivity, UserActivityDto>().ReverseMap();
         }
     }
 }

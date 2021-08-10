@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using FullStackDeveloperWebApi.Mapping;
 using FullStackDeveloperWebApi.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace FullStackDeveloperWebApi
 {
@@ -38,9 +39,17 @@ namespace FullStackDeveloperWebApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FullStackDeveloperWebApi", Version = "v1" });
             });
 
+            DbConfiguration(services);
             MapperConfiguration(services);
             services.AddScoped<IUserActivityRepository, UserActivityRepository>();
             services.AddScoped<IUserActivityService, UserActivityService>();
+        }
+
+        private void DbConfiguration(IServiceCollection services)
+        {
+            services.AddDbContext<Context>(
+                options => options.UseNpgsql(Configuration.GetConnectionString(nameof(Context)))
+                );
         }
 
         private static void MapperConfiguration(IServiceCollection services)

@@ -21,7 +21,7 @@ namespace FullStackDeveloperWebApi.Services
             return await _repository.CreateAsync(dto);
         }
 
-        public async Task DeleteAsync(params int[] ids)
+        public async Task DeleteAsync(params int?[] ids)
         {
             await _repository.DeleteAsync(ids);
         }

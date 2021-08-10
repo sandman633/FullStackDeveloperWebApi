@@ -23,7 +23,7 @@ namespace FullStackDeveloperWebApi.Repositories
         }
 
 
-        public async Task DeleteAsync(params int[] ids)
+        public async Task DeleteAsync(params int?[] ids)
         {
             var entities = await _dbSet.Where(x => ids.Contains(x.Id))
                                        .ToListAsync();
@@ -50,7 +50,7 @@ namespace FullStackDeveloperWebApi.Repositories
             return dtos;
         }
 
-        public async Task<TDto> GetByIdAsync(int id)
+        public async Task<TDto> GetByIdAsync(int? id)
         {
             var entity = await _dbSet
                   .AsNoTracking()

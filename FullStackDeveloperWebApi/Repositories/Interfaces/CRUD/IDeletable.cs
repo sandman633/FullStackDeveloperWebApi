@@ -4,6 +4,6 @@ namespace FullStackDeveloperWebApi.Repositories
 {
     public interface IDeletable
     {
-        Task DeleteAsync(params int[] ids);
+        Task DeleteAsync(params int?[] ids);
     }
 }

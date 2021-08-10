@@ -8,6 +8,6 @@ namespace FullStackDeveloperWebApi.Repositories
         /// Interface method for getting entities by id.
         /// </summary>
         /// <param name="id">Identifier.</param>
-        Task<TModel> GetByIdAsync(int id);
+        Task<TModel> GetByIdAsync(int? id);
     }
 }
