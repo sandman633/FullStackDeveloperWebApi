@@ -1,0 +1,73 @@
+body{
+  background: #F9F9F9;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #5D6D97;
+}
+.main {
+  width: 50%;
+  margin: auto;
+}
+
+.table {
+  background: #ffffff;
+  width:100%;
+  -moz-border-radius: 0px 0px 10px 10px; /* Firefox */
+  -webkit-border-radius: 0px 0px 10px 10px; /* Safari, Google Chrome */
+  -khtml-border-radius: 0px 0px 10px 10px; /* KHTML */
+  -o-border-radius: 0px 0px 10px 10px; /* Opera */
+  -ms-border-radius: 10px 0px 10px 10px; /* IE8 */
+  border-radius: 0px 0px 10px 10px; /* CSS3 */
+  overflow:hidden;
+  margin:0 auto;
+  box-shadow: 0 14px 28px rgba(47, 46, 46, 0.25), 0 10px 10px rgba(77, 75, 75, 0.22);
+}
+.tableRow {
+  border-bottom: 0.5px solid rgba(93, 110, 151, 0.4);
+}
+
+.buttons {
+  margin-top: 21px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.button {
+  width: 189px;
+  height: 38px;
+  background: #4A9DFF;
+  border-radius: 10px;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
+  box-shadow: 0 14px 28px rgba(47, 46, 46, 0.25), 0 10px 10px rgba(77, 75, 75, 0.22);
+}
+.inputs {
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 240px;
+  -moz-border-radius: 10px 10px 0px 0px; /* Firefox */
+  -webkit-border-radius: 10px 10px 0px 0px; /* Safari, Google Chrome */
+  -khtml-border-radius: 0px 10px 0px 0px; /* KHTML */
+  -o-border-radius: 10px 10px 0px 0px; /* Opera */
+  -ms-border-radius: 10px 10px 0px 0px; /* IE8 */
+  border-radius: 10px 10px 0px 0px; /* CSS3 */
+
+}
+.input {
+  width: 250px;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  box-shadow: none;
+}

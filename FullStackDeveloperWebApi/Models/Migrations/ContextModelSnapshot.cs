@@ -27,10 +27,10 @@ namespace FullStackDeveloperWebApi.Migrations
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<DateTime>("LastActivityDate")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
 
                     b.Property<DateTime>("RegistrationDate")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("date");
 
                     b.Property<int>("UserId")
                         .HasColumnType("integer");

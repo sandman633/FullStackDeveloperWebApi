@@ -76,7 +76,7 @@ namespace FullStackDeveloperWebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader());
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -45,7 +45,7 @@ namespace FullStackDeveloperWebApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public  IActionResult CreateUsers([FromBody]IEnumerable<NewUserActivity> request)
         {
-            _logger.LogInformation("UserActivity/Post was requested.");
+                _logger.LogInformation("UserActivity/Post was requested.");
 
             _service.CreateRange(_mapper.Map<IEnumerable<UserActivityDto>>(request).ToArray());
             return Ok();

@@ -13,5 +13,6 @@ namespace FullStackDeveloperWebApi.Dto.Response
         public DateTime RegistrationDate { get; set; }
 
         public DateTime LastActivityDate { get; set; }
+        
     }
 }

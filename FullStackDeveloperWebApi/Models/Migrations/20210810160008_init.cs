@@ -15,8 +15,8 @@ namespace FullStackDeveloperWebApi.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     UserId = table.Column<int>(type: "integer", nullable: false),
-                    RegistrationDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    LastActivityDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
+                    RegistrationDate = table.Column<DateTime>(type: "date", nullable: false),
+                    LastActivityDate = table.Column<DateTime>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
